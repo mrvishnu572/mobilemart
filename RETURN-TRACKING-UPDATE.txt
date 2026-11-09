@@ -1,0 +1,27 @@
+MobileMart Return Tracking Update
+=================================
+
+This update adds a chronological, Flipkart-style return timeline.
+
+Return stages managed from Admin > Returns:
+1. Requested (customer submits return)
+2. Approved / Rejected
+3. Pickup scheduled
+4. Product picked up
+5. Quality inspection
+6. Refund initiated
+7. Return completed
+
+Each stage is saved as a timestamped timeline event in MongoDB. Admin notes are
+stored on the event description and the latest adminNote field, and displayed
+in the customer's My Profile > My Orders return card.
+
+Install dependencies in your own environment:
+  cd backend && npm install && npm run dev
+  cd frontend && npm install && npm run dev
+
+Keep your existing backend/.env and frontend/.env files. They are intentionally
+not included in this ZIP because they may contain credentials.
+
+Note: This project records the Refund Initiated workflow status; it does not
+perform an automatic Razorpay partial refund transaction.
